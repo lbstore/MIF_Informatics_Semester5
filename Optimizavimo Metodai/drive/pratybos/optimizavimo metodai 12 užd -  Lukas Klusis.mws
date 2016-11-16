@@ -1,0 +1,135 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Text Output" -1 6 
+1 {CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 2 2 2 2 2 1 2 1 3 1 }1 1 
+0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 1983 "with(simplex):\nF:=0.000000001:\n
+skaidyti:=proc(f,r::integer, aprib::list)\n   local s,i,z, sveikareiks
+mis,laprib,kint,rez,dal_aprib;\n   global F;\n   laprib:=aprib;\n   ki
+nt:=[x1,x2];\n   dal_aprib:=\{aprib[1],aprib[2],aprib[3],aprib[4]\};\n
+   sveikareiksmis:=true;\n   #d\353l visa ko pikto, jeigu algoritme b
+\373t\370 palikta klaid\370 ir algoritmas u\376siciklint\370, palieku \+
+apribojim\340, kiek maksimaliai gali dirbti.\n   if( r>20000000) then
+\n     #print( \"daugiau nei 20000000\");\n     return;\n   end if;\n \+
+  f;\n   laprib;\n   #surandame sprendinius \n   s:=maximize(f(x1,x2),
+ laprib);\n\n   #jeigu n\353ra sprendini\370, tai i\360braukiame i\360
+ TPU ir gr\341\376tame prie ankstensio darbo\n   if(nops(s) = 0) then
+\n     #daliniai rezultatai:\n     #printf(\"TPU-%d: x*=%a aprib: %a \+
+\\n\",r,s,dal_aprib);\n     return;\n   else\n      #daliniai rezultat
+ai:\n      #printf(\"TPU-%d: x*=%a, f(x*)=%f, aprib: %a \\n\",r,s,f(rh
+s(s[1]),rhs(s[2])),dal_aprib);\n   end if;\n\n      \n\n   #jeigu maks
+imali nesveikarei\360mio sprendinio reik\360m\353 yra ma\376esn\353 u
+\376 F (surastam maksimaliam sveikareik\360mio sprendinio funkcijos f(
+x1,x2) reik\360m\353) tai i\360braukiame i\360 TPU, nes vistiek didesn
+\353s reik\360m\353s nebegausime\n   if(f(rhs(s[1]),rhs(s[2])) < F) th
+en\n     return;\n   end if;\n\n   for i from 1 to 2 do\n     # patikr
+iname ar sprendiniai sveikareik\360miai, atsi\376velgiant \341 galimas
+ paklaidas\n     # jeigu reik\360m\353s skiriasi nuo sveikojo skai\350
+io tik nuo 7 (ir daugiau) skai\350iaus\n     # po kablelio tai laikome
+ \360\341 skai\350i\370 sveikuoju\n     if(  abs(rhs(s[i])-round(rhs(s
+[i]))) > 0.0000001 ) then\n        sveikareiksmis:= false;\n        z:
+=floor(rhs(s[i])):\n        laprib[2+i]:=z>=kint[i];\n        skaidyti
+(f,2*r+1,laprib);\n\n        laprib:=aprib;\n        laprib[i] :=z+1<=
+kint[i];\n        skaidyti(f,2*r+2,laprib);\n        break;\n     end \+
+if;\n   end do;\n   if(sveikareiksmis) then\n     rez:=[x1=round(rhs(s
+[1])),x2=round(rhs(s[2]))];\n     F:=f(rhs(rez[1]),rhs(rez[2]));\n    \+
+ \n     printf(\"sveikareiksmis TPU-%d: %a, %a, f(x*)=%f \\n\",r, rez,
+ dal_aprib, F);\n   end if;\nend proc:\n\n" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 581 "a:=664:b:=624:c1:=19:c2:=62:d1:=39:d2:=28: i:=16:
+\n#a := 120; b := 400; c1 := 3; d1 := 5; c2 := 14; d2:= 12; i:=9;\nres
+1:=a; # turima 1 r\373\360ies (ton\370) resurs\370\nres2:=b; # turime \+
+2 r\373\360ies (darbo valand\370) resurs\370\nm:=2; #2 r\373\360i\370 \+
+produktai\na11:=c1; #kiek reikia 1 produktui 1 r\373\360ies (ton\370) \+
+resurs\370\na21:=c2;#kiek reikia 1 produktui 2 r\373\360ies (valand
+\370) resurs\370\na12:=d1; #kiek reikia 2 produktui 1 r\373\360ies (to
+n\370) resurs\370\na22:=d2;#kiek reikia 2 produktui 2 r\373\360ies (va
+land\370) resurs\370\nc1:=30+2*i; #kiek gausime pelno pardav\346 1 r
+\373\360ies produkt\340\nc2:=35+i; #kiek gausime pelno pardav\346 2 r
+\373\360ies produkt\340" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%res1G\"$
+k'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%res2G\"$C'" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%\"mG\"\"#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$a11
+G\"#>" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$a21G\"#i" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%$a12G\"#R" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$a2
+2G\"#G" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#c1G\"#i" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%#c2G\"#^" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 24 "f:=(x1,x2)->c1*x1+c2*x2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"
+fGf*6$%#x1G%#x2G6\"6$%)operatorG%&arrowGF),&*&%#c1G\"\"\"9$F0F0*&%#c2G
+F09%F0F0F)F)F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 73 "aprib:=[x
+1>=0,x2>=0,x1>=0,x2>=0,a11*x1+a12*x2<=res1,a21*x1+a22*x2<=res2];" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&apribG7(1\"\"!%#x1G1F'%#x2GF&F)1,&*
+&\"#>\"\"\"F(F/F/*&\"#RF/F*F/F/\"$k'1,&*&\"#iF/F(F/F/*&\"#GF/F*F/F/\"$
+C'" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 201 "#1 - kiek reikia pag
+aminti pirmojo produkto, kad pelnas b\373t\370 did\376iausias\n#2 - ki
+ek reikia gaminti antrojo produkto, kad pelnas b\373t\370 did\376iausi
+as\nmaxPelnArg:=evalf(maximize(f(x1,x2),aprib, NONNEGATIVE));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+maxPelnArgG<$/%#x1G$\"+_\"*fXI!\"*/
+%#x2G$\"+f()=a:!\")" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 176 "#3 \+
+- koks yra did\376iausias pelnas?\nx1:=rhs(maxPelnArg[1]):x2:=rhs(maxP
+elnArg[2]):\nmaxPeln:=evalf(f(x1,x2)):\n\"max f(x1*,x2*)\" = maxPeln;
+\nx1:='x1': x2:='x2':\nskaidyti(f,0,aprib);\n" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/Q/max~f(x1*,x2*)6\"$\"+XTj9)*!\"(" }}{PARA 6 "" 1 "" 
+{TEXT -1 97 "sveikareiksmis TPU-3: [x1 = 3, x2 = 15], \{0 <= x1, 0 <= \+
+x2, x1 <= 3, x2 <= 15\}, f(x*)=951.000000 " }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 379 "#Kiek padid\353s pelnas, jeigu resurs\370 sanaudos
+ padid\353s 1 tona?\naprib1:=[x1>=0,x2>=0,x1>=0,x2>=0,(a11+1)*x1+(a12+
+1)*x2<=res1,(a21+0)*x1+(a22+0)*x2<=res2];\nmaxPelnArg:=evalf(maximize(
+f(x1,x2),aprib1, NONNEGATIVE));\nx1:=rhs(maxPelnArg[1]):x2:=rhs(maxPel
+nArg[2]):\n\"max f(x1*,x2*)\" = evalf(f(x1,x2));\nprint(padid\353s + (
+evalf(f(x1,x2))-maxPeln));\nx1:='x1': x2:='x2':\nskaidyti(f,0,aprib);
+\n" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'aprib1G7(1\"\"!%#x1G1F'%#x2GF
+&F)1,&*&\"#?\"\"\"F(F/F/*&\"#SF/F*F/F/\"$k'1,&*&\"#iF/F(F/F/*&\"#GF/F*
+F/F/\"$C'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+maxPelnArgG<$/%#x1G$\"
++nmm;L!\"*/%#x2G$\"+nm;%\\\"!\")" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q
+/max~f(x1*,x2*)6\"$\"+OLew'*!\"(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&
+%(padid|fysG\"\"\"$\"*430Q\"!\"(!\"\"" }}{PARA 6 "" 1 "" {TEXT -1 97 "
+sveikareiksmis TPU-3: [x1 = 3, x2 = 15], \{0 <= x1, 0 <= x2, x1 <= 3, \+
+x2 <= 15\}, f(x*)=951.000000 " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 374 "#Kiek padid\353s \+
+pelnas, jeigu laiko s\340naudos padid\353s 1h?\naprib2:=[x1>=0,x2>=0,x
+1>=0,x2>=0,(a11+0)*x1+(a12+0)*x2<=res1,(a21+1)*x1+(a22+1)*x2<=res2];\n
+maxPelnArg:=evalf(maximize(f(x1,x2),aprib2, NONNEGATIVE));\n\nx1:=rhs(
+maxPelnArg[1]):x2:=rhs(maxPelnArg[2]):\n\"max f(x1*,x2*)\" = evalf(f(x
+1,x2));\nprint(padid\353s + (evalf(f(x1,x2))-maxPeln));\nx1:='x1': x2:
+='x2':\nskaidyti(f,0,aprib);\n" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'a
+prib2G7(1\"\"!%#x1G1F'%#x2GF&F)1,&*&\"#>\"\"\"F(F/F/*&\"#RF/F*F/F/\"$k
+'1,&*&\"#jF/F(F/F/*&\"#HF/F*F/F/\"$C'" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#>%+maxPelnArgG<$/%#x1G$\"+wvElE!\"*/%#x2G$\"+Lxrs:!\")" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/Q/max~f(x1*,x2*)6\"$\"+NjKt'*!\"(" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#,&%(padid|fysG\"\"\"$\"*5yIT\"!\"(!\"\"" }}
+{PARA 6 "" 1 "" {TEXT -1 97 "sveikareiksmis TPU-3: [x1 = 3, x2 = 15], \+
+\{0 <= x1, 0 <= x2, x1 <= 3, x2 <= 15\}, f(x*)=951.000000 " }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 369 "#Kiek padid\353s pelnas, jeigu res
+ursai padid\353s 1 tona?\naprib1:=[x1>=0,x2>=0,x1>=0,x2>=0,(a11)*x1+(a
+12)*x2<=res1+1,(a21+0)*x1+(a22+0)*x2<=res2];\nmaxPelnArg:=evalf(maximi
+ze(f(x1,x2),aprib1, NONNEGATIVE));\nx1:=rhs(maxPelnArg[1]):x2:=rhs(max
+PelnArg[2]):\n\"max f(x1*,x2*)\" = evalf(f(x1,x2));\nprint(padid\353s \+
++ (evalf(f(x1,x2))-maxPeln));\nx1:='x1': x2:='x2':\nskaidyti(f,0,aprib
+);\n" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'aprib1G7(1\"\"!%#x1G1F'%#x2
+GF&F)1,&*&\"#>\"\"\"F(F/F/*&\"#RF/F*F/F/\"$l'1,&*&\"#iF/F(F/F/*&\"#GF/
+F*F/F/\"$C'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+maxPelnArgG<$/%#x1G$
+\"+;HvII!\"*/%#x2G$\"+ShZd:!\")" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q/
+max~f(x1*,x2*)6\"$\"+A^>A)*!\"(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&%
+(padid|fysG\"\"\"$\"(x4c(!\"(F%" }}{PARA 6 "" 1 "" {TEXT -1 97 "sveika
+reiksmis TPU-3: [x1 = 3, x2 = 15], \{0 <= x1, 0 <= x2, x1 <= 3, x2 <= \+
+15\}, f(x*)=951.000000 " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 378 
+"#Kiek padid\353s pelnas, jeigu resursai padid\353s 1 darbo valanda?\n
+aprib1:=[x1>=0,x2>=0,x1>=0,x2>=0,(a11)*x1+(a12)*x2<=res1,(a21+0)*x1+(a
+22+0)*x2<=res2+1];\nmaxPelnArg:=evalf(maximize(f(x1,x2),aprib1, NONNEG
+ATIVE));\nx1:=rhs(maxPelnArg[1]):x2:=rhs(maxPelnArg[2]):\n\"max f(x1*,
+x2*)\" = evalf(f(x1,x2));\nprint(padid\353s + (evalf(f(x1,x2))-maxPeln
+));\nx1:='x1': x2:='x2':\nskaidyti(f,0,aprib);\n" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%'aprib1G7(1\"\"!%#x1G1F'%#x2GF&F)1,&*&\"#>\"\"\"F(F/F
+/*&\"#RF/F*F/F/\"$k'1,&*&\"#iF/F(F/F/*&\"#GF/F*F/F/\"$D'" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%+maxPelnArgG<$/%#x1G$\"+PyFmI!\"*/%#x2G$\"+O8=
+`:!\")" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q/max~f(x1*,x2*)6\"$\"+tqJA
+)*!\"(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&%(padid|fysG\"\"\"$\"(GHo(
+!\"(F%" }}{PARA 6 "" 1 "" {TEXT -1 97 "sveikareiksmis TPU-3: [x1 = 3, \+
+x2 = 15], \{0 <= x1, 0 <= x2, x1 <= 3, x2 <= 15\}, f(x*)=951.000000 " 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "11 0 0" 60 }
+{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

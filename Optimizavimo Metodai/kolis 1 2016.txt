@@ -1,0 +1,7 @@
+1 funkcijos minimumo pakankamumo ir butinoji salyga
+2 Palyginti intervalo dalinimo pusiau ir auksinio pjuvio algoritmus
+3 Niutono metodo pranašumai ir trukumai
+4 f(x) = ax^2 + bx + d minivizavimas su pasirinktu algoritmu
+5 f(x) = ax2*x2+ ... ištirti extremumus (Hesse matrica)
+
+141abcd - studento nr

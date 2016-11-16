@@ -1,0 +1,376 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 
+11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 
+0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 12 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 82 "alpha:=[alpha1,alpha2,alpha3,alpha4
+];\nbeta:=[beta1,beta2,beta3,beta4,beta5,beta6];" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%&alphaG7&\"\"!!\"\"F'!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%%betaG7(\"\"%F&\"\"*\"\")\"#8\"\"$" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 68 "c:=[\n[4,4,6,6,11,0],\n[3,3,8,7,9,0],\n[2
+,4,9,7,12,0],\n[3,5,6,4,10,0]];" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"cG7&7(\"\"%F'\"\"'F(\"#6\"\"!7
+(\"\"$F,\"\")\"\"(\"\"*F*7(\"\"#F'F/F.\"#7F*7(F,\"\"&F(F'\"#5F*" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 235 "lygtys:=\{\nc[1,1] = alpha1
+ + beta1,\nc[1,2] = alpha1 + beta2,\nc[2,2] = alpha2 + beta2,\nc[2,3] \+
+= alpha2 + beta3,\nc[2,4] = alpha2 + beta4,\nc[3,4] = alpha3 + beta4,
+\nc[3,5] = alpha3 + beta5,\nc[4,5] = alpha4 + beta5,\nc[4,6] = alpha4 \+
++ beta6\};" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%'lygtysG<)/\"\"!F'/\"\"$F)/\"\"%F+/\"\"(F-/\"\")F//\"
+#5F1/\"#7F3" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "s:=solve(lyg
+tys union \{alpha1=0\});" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"sG<\"
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 11 "assign(s);\n" }}{PARA 
+0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 214 "delta:=[\n[delta11,delta12,delta13,delta14,delta15,delta16],\n[
+delta21,delta22,delta23,delta24,delta25,delta26],\n[delta31,delta32,de
+lta33,delta34,delta35,delta36],\n[delta41,delta42,delta43,delta44,delt
+a45,delta46]\n];" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%&deltaG7&7(%(del
+ta11G%(delta12G%(delta13G%(delta14G%(delta15G%(delta16G7(%(delta21G%(d
+elta22G%(delta23G%(delta24G%(delta25G%(delta26G7(%(delta31G%(delta32G%
+(delta33G%(delta34G%(delta35G%(delta36G7(%(delta41G%(delta42G%(delta43
+G%(delta44G%(delta45G%(delta46G" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 183 "for i from 1 to 4 do\n   for j from 1 to 6 do\n      delta[i,
+j]:=c[i,j]-(alpha[i]+beta[j]);\n      print('delta'[i,j]=delta[i,j]);
+\n   end do;\n     print(\"------ new line -----\");\nend do;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"F'\"\"!" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#\"\"!" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"#\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"#\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"#\"\"&!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"
+#\"\"'!\"#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"!\"\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"\"" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"\"" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"'!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"\"\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"%\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"%F'!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6
+$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%
+\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 394 "#perdarome lentel
+\346\nrestart;\nc:=[\n[4,4,6,6,11,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],
+\n[3,5,6,4,10,0]]:\nalpha:=[alpha1,alpha2,alpha3,alpha4]:\nbeta:=[beta
+1,beta2,beta3,beta4,beta5,beta6]:\ndelta:=[\n[delta11,delta12,delta13,
+delta14,delta15,delta16],\n[delta21,delta22,delta23,delta24,delta25,de
+lta26],\n[delta31,delta32,delta33,delta34,delta35,delta36],\n[delta41,
+delta42,delta43,delta44,delta45,delta46]\n]:" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 235 "l
+ygtys:=\{\nc[1,1] = alpha1 + beta1,\nc[1,3] = alpha1 + beta3,\nc[2,2] \+
+= alpha2 + beta2,\nc[2,3] = alpha2 + beta3,\nc[2,4] = alpha2 + beta4,
+\nc[3,4] = alpha3 + beta4,\nc[3,5] = alpha3 + beta5,\nc[4,5] = alpha4 \+
++ beta5,\nc[4,6] = alpha4 + beta6\};" }}{PARA 12 "" 1 "" {XPPMATH 20 "
+6#>%'lygtysG<+/\"\"!,&%'alpha4G\"\"\"%&beta6GF*/\"\"$,&%'alpha2GF*%&be
+ta2GF*/\"\"%,&%'alpha1GF*%&beta1GF*/\"\"',&F4F*%&beta3GF*/\"\"(,&F/F*%
+&beta4GF*/F;,&%'alpha3GF*F=F*/\"\"),&F/F*F9F*/\"#5,&F)F*%&beta5GF*/\"#
+7,&F@F*FGF*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "s:=solve(lyg
+tys union \{alpha1=0\});" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"sG<,/%
+'alpha1G\"\"!/%'alpha2G\"\"#/%'alpha3GF+/%'alpha4GF(/%&beta1G\"\"%/%&b
+eta2G\"\"\"/%&beta3G\"\"'/%&beta4G\"\"&/%&beta5G\"#5/%&beta6GF(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "assign(s);" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 183 "for i from 1 to 4 do\n   for j from 1 to
+ 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+beta[j]);\n      print('delt
+a'[i,j]=delta[i,j]);\n   end do;\n     print(\"------ new line -----\"
+);\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"F'\"
+\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#\"\"$" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$\"\"!" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%F'" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&F'" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"#\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"#\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"#\"\"&!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"
+#\"\"'!\"#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"!\"%" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"\"" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"\"" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"'!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"!\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"%\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"%F'!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6
+$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%
+\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 394 "#perdarome lentel
+\346\nrestart;\nc:=[\n[4,4,6,6,11,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],
+\n[3,5,6,4,10,0]]:\nalpha:=[alpha1,alpha2,alpha3,alpha4]:\nbeta:=[beta
+1,beta2,beta3,beta4,beta5,beta6]:\ndelta:=[\n[delta11,delta12,delta13,
+delta14,delta15,delta16],\n[delta21,delta22,delta23,delta24,delta25,de
+lta26],\n[delta31,delta32,delta33,delta34,delta35,delta36],\n[delta41,
+delta42,delta43,delta44,delta45,delta46]\n]:" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 235 "lygtys:=\{\nc[1,1] = alpha1 + beta1,\nc[1,3] = \+
+alpha1 + beta3,\nc[2,2] = alpha2 + beta2,\nc[3,1] = alpha3 + beta1,\nc
+[2,4] = alpha2 + beta4,\nc[3,4] = alpha3 + beta4,\nc[3,5] = alpha3 + b
+eta5,\nc[4,5] = alpha4 + beta5,\nc[4,6] = alpha4 + beta6\};" }}{PARA 
+12 "" 1 "" {XPPMATH 20 "6#>%'lygtysG<+/\"\"!,&%'alpha4G\"\"\"%&beta6GF
+*/\"\"#,&%'alpha3GF*%&beta1GF*/\"\"$,&%'alpha2GF*%&beta2GF*/\"\"%,&%'a
+lpha1GF*F0F*/\"\"',&F9F*%&beta3GF*/\"\"(,&F4F*%&beta4GF*/F?,&F/F*FAF*/
+\"#5,&F)F*%&beta5GF*/\"#7,&F/F*FGF*" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 34 "s:=solve(lygtys union \{alpha1=0\});" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%\"sG<,/%'alpha1G\"\"!/%'alpha2G!\"#/%'alpha3GF+/
+%'alpha4G!\"%/%&beta1G\"\"%/%&beta2G\"\"&/%&beta3G\"\"'/%&beta4G\"\"*/
+%&beta5G\"#9/%&beta6GF3" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "
+assign(s);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 183 "for i from 1
+ to 4 do\n   for j from 1 to 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+
+beta[j]);\n      print('delta'[i,j]=delta[i,j]);\n   end do;\n     pri
+nt(\"------ new line -----\");\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"\"F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%
+&deltaG6$\"\"\"\"\"#!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delta
+G6$\"\"\"\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"
+\"\"\"\"%!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"
+\"&!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'!\"%
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"F(" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"$\"\"%" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"&!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"'!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"&" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"$\"\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"$\"\"'!\"#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~lin
+e~-----6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"
+\"\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#F'" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"$F'" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%F'!\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 860 "#perdarome lentel\346\nrestart;\nc:=[\n[4,4,6,6,11
+,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],\n[3,5,6,4,10,0]]:\nalpha:=[alpha
+1,alpha2,alpha3,alpha4]:\nbeta:=[beta1,beta2,beta3,beta4,beta5,beta6]:
+\ndelta:=[\n[delta11,delta12,delta13,delta14,delta15,delta16],\n[delta
+21,delta22,delta23,delta24,delta25,delta26],\n[delta31,delta32,delta33
+,delta34,delta35,delta36],\n[delta41,delta42,delta43,delta44,delta45,d
+elta46]\n]:\nlygtys:=\{\nc[1,6] = alpha1 + beta6,\nc[1,3] = alpha1 + b
+eta3,\nc[2,2] = alpha2 + beta2,\nc[3,1] = alpha3 + beta1,\nc[2,4] = al
+pha2 + beta4,\nc[3,4] = alpha3 + beta4,\nc[3,5] = alpha3 + beta5,\nc[4
+,5] = alpha4 + beta5,\nc[4,6] = alpha4 + beta6\}:\ns:=solve(lygtys uni
+on \{alpha1=0\});\nassign(s):\nfor i from 1 to 4 do\n   for j from 1 t
+o 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+beta[j]);\n      print('del
+ta'[i,j]=delta[i,j]);\n   end do;\n     print(\"------ new line -----
+\");\nend do;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"sG<,/%'alpha1G\"\"!/%'alpha2G\"\"#/%'alp
+ha3GF+/%'alpha4GF(/%&beta1GF(/%&beta2G\"\"\"/%&beta3G\"\"'/%&beta4G\"
+\"&/%&beta5G\"#5/%&beta6GF(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&del
+taG6$\"\"\"F'\"\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"
+\"\"\"#\"\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"
+$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%F'" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&F'" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"F(" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&
+deltaG6$\"\"#\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6
+$\"\"#\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#
+\"\"&!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"'!\"
+#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"\"" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"'!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"\"\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"%\"\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"%F'!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6
+$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%
+\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 860 "#perdarome lentel
+\346\nrestart;\nc:=[\n[4,4,6,6,11,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],
+\n[3,5,6,4,10,0]]:\nalpha:=[alpha1,alpha2,alpha3,alpha4]:\nbeta:=[beta
+1,beta2,beta3,beta4,beta5,beta6]:\ndelta:=[\n[delta11,delta12,delta13,
+delta14,delta15,delta16],\n[delta21,delta22,delta23,delta24,delta25,de
+lta26],\n[delta31,delta32,delta33,delta34,delta35,delta36],\n[delta41,
+delta42,delta43,delta44,delta45,delta46]\n]:\nlygtys:=\{\nc[1,6] = alp
+ha1 + beta6,\nc[1,3] = alpha1 + beta3,\nc[2,2] = alpha2 + beta2,\nc[3,
+1] = alpha3 + beta1,\nc[2,4] = alpha2 + beta4,\nc[3,4] = alpha3 + beta
+4,\nc[2,5] = alpha2 + beta5,\nc[4,5] = alpha4 + beta5,\nc[4,6] = alpha
+4 + beta6\}:\ns:=solve(lygtys union \{alpha1=0\});\nassign(s):\nfor i \+
+from 1 to 4 do\n   for j from 1 to 6 do\n      delta[i,j]:=c[i,j]-(alp
+ha[i]+beta[j]);\n      print('delta'[i,j]=delta[i,j]);\n   end do;\n  \+
+   print(\"------ new line -----\");\nend do;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"sG<,/%'alpha1G\"\"!/%'alpha2G!\"\"/%'alpha3GF+/%'al
+pha4GF(/%&beta1G\"\"$/%&beta2G\"\"%/%&beta3G\"\"'/%&beta4G\"\")/%&beta
+5G\"#5/%&beta6GF(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"
+\"F'F'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#\"\"!
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$\"\"!" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%!\"#" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&F'" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"F(" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&
+deltaG6$\"\"#\"\"$F(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"
+\"#\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"
+&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"'\"\"\"
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"\"" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"%" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"&F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"$\"\"'\"\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"%\"\"\"\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"
+\"%\"\"#\"\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"
+\"$\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%F'!\"%" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"&\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"'\"\"!" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 860 "#perdarome lentel\346\nrestart;\nc:=[\n[4,4,6
+,6,11,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],\n[3,5,6,4,10,0]]:\nalpha:=[
+alpha1,alpha2,alpha3,alpha4]:\nbeta:=[beta1,beta2,beta3,beta4,beta5,be
+ta6]:\ndelta:=[\n[delta11,delta12,delta13,delta14,delta15,delta16],\n[
+delta21,delta22,delta23,delta24,delta25,delta26],\n[delta31,delta32,de
+lta33,delta34,delta35,delta36],\n[delta41,delta42,delta43,delta44,delt
+a45,delta46]\n]:\nlygtys:=\{\nc[1,6] = alpha1 + beta6,\nc[1,3] = alpha
+1 + beta3,\nc[2,2] = alpha2 + beta2,\nc[3,1] = alpha3 + beta1,\nc[4,4]
+ = alpha4 + beta4,\nc[3,4] = alpha3 + beta4,\nc[2,5] = alpha2 + beta5,
+\nc[4,5] = alpha4 + beta5,\nc[4,6] = alpha4 + beta6\}:\ns:=solve(lygty
+s union \{alpha1=0\});\nassign(s):\nfor i from 1 to 4 do\n   for j fro
+m 1 to 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+beta[j]);\n      print
+('delta'[i,j]=delta[i,j]);\n   end do;\n     print(\"------ new line -
+----\");\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"sG<,/%'alpha1
+G\"\"!/%'alpha2G!\"\"/%'alpha3G\"\"$/%'alpha4GF(/%&beta1GF+/%&beta2G\"
+\"%/%&beta3G\"\"'/%&beta4GF5/%&beta5G\"#5/%&beta6GF(" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"F'\"\"&" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%\"\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"#\"\"\"\"\"&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"
+\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"$F(
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"%F(" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"&\"\"!" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"'\"\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"$\"\"&!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"$\"\"'!\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~lin
+e~-----6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"F
+'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#\"\"\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"$\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%F'\"\"!" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 860 "#perdarome lentel\346\nrestart;\nc:=[\n[4,4,6,6,11
+,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],\n[3,5,6,4,10,0]]:\nalpha:=[alpha
+1,alpha2,alpha3,alpha4]:\nbeta:=[beta1,beta2,beta3,beta4,beta5,beta6]:
+\ndelta:=[\n[delta11,delta12,delta13,delta14,delta15,delta16],\n[delta
+21,delta22,delta23,delta24,delta25,delta26],\n[delta31,delta32,delta33
+,delta34,delta35,delta36],\n[delta41,delta42,delta43,delta44,delta45,d
+elta46]\n]:\nlygtys:=\{\nc[1,6] = alpha1 + beta6,\nc[1,3] = alpha1 + b
+eta3,\nc[2,2] = alpha2 + beta2,\nc[3,1] = alpha3 + beta1,\nc[4,4] = al
+pha4 + beta4,\nc[3,4] = alpha3 + beta4,\nc[2,5] = alpha2 + beta5,\nc[4
+,5] = alpha4 + beta5,\nc[3,6] = alpha3 + beta6\}:\ns:=solve(lygtys uni
+on \{alpha1=0\});\nassign(s):\nfor i from 1 to 4 do\n   for j from 1 t
+o 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+beta[j]);\n      print('del
+ta'[i,j]=delta[i,j]);\n   end do;\n     print(\"------ new line -----
+\");\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"sG<,/%'alpha1G\"
+\"!/%'alpha2G!\"%/%'alpha3GF(/%'alpha4G!\"$/%&beta1G\"\"#/%&beta2G\"\"
+(/%&beta3G\"\"'/%&beta4GF6/%&beta5G\"#8/%&beta6GF(" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"F'\"\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#!\"$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%!\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&!\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"\"\"\"&" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"#F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"#\"\"$\"\"'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/
+&%&deltaG6$\"\"#\"\"%F(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6
+$\"\"#\"\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#
+\"\"'\"\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6
+\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#!\"$" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"$F'F'" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"%\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"&!\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"%\"\"#\"\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+/&%&deltaG6$\"\"%\"\"$F(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG
+6$\"\"%F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"
+\"&\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"'\"\"
+$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~-----6\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 860 "#perdarome lentel\346\nrest
+art;\nc:=[\n[4,4,6,6,11,0],\n[3,3,8,7,9,0],\n[2,4,9,7,12,0],\n[3,5,6,4
+,10,0]]:\nalpha:=[alpha1,alpha2,alpha3,alpha4]:\nbeta:=[beta1,beta2,be
+ta3,beta4,beta5,beta6]:\ndelta:=[\n[delta11,delta12,delta13,delta14,de
+lta15,delta16],\n[delta21,delta22,delta23,delta24,delta25,delta26],\n[
+delta31,delta32,delta33,delta34,delta35,delta36],\n[delta41,delta42,de
+lta43,delta44,delta45,delta46]\n]:\nlygtys:=\{\nc[1,6] = alpha1 + beta
+6,\nc[1,3] = alpha1 + beta3,\nc[2,2] = alpha2 + beta2,\nc[3,1] = alpha
+3 + beta1,\nc[4,4] = alpha4 + beta4,\nc[3,4] = alpha3 + beta4,\nc[2,5]
+ = alpha2 + beta5,\nc[4,5] = alpha4 + beta5,\nc[3,6] = alpha3 + beta6
+\}:\ns:=solve(lygtys union \{alpha1=0\});\nassign(s):\nfor i from 1 to
+ 4 do\n   for j from 1 to 6 do\n      delta[i,j]:=c[i,j]-(alpha[i]+bet
+a[j]);\n      print('delta'[i,j]=delta[i,j]);\n   end do;\n     print(
+\"------ new line -----\");\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%\"sG<,/%'alpha1G\"\"!/%'alpha2G!\"\"/%'alpha3GF(/%'alpha4GF(/%&bet
+a1G\"\"#/%&beta2G\"\"%/%&beta3G\"\"'/%&beta4GF5/%&beta5G\"#5/%&beta6GF
+(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"F'\"\"#" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"#\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"$\"\"!" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"%\"\"#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"\"\"\"&F'" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/&%&deltaG6$\"\"\"\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"#\"\"\"F'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#
+F'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"$F(" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"%F(" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"&\"\"!" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/&%&deltaG6$\"\"#\"\"'\"\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"\"\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$\"\"#\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"$F'F'" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#/&%&deltaG6$\"\"$\"\"%F'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&delt
+aG6$\"\"$\"\"&\"\"#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"
+\"$\"\"'\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q6------~new~line~---
+--6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"\"F(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"#\"\"\"" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"$\"\"!" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/&%&deltaG6$\"\"%F'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"&\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/&%&deltaG6$\"\"%\"\"'\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q6------~new~line~-----6\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}}{MARK "24 0 0" 553 }{VIEWOPTS 1 1 0 1 1 1803 
+1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

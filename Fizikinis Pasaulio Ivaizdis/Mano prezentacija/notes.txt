@@ -1,0 +1,41 @@
+Notes:
+    Šiandien aš jums pristatysiu naujausias žinias apie kvantine teleportacija
+    Kaip matote iš šio komikso, deja tai nera ta teleportacija iš mokslines fantastikos, kada objektas pakeicia savo lokacija
+    
+    Kvantines teleportacijos esme yra tokia:
+    Kvantiškai suporuotos daleles ar daleliu grupes keiciant kvantine stadija poros kitoje puseje ji taip pat pasikeicia nepaisant atstumo. 
+
+    Kaip tai maždaug veiktu:
+    Paruošiama dalele C su kvantine stadija, kuria norime persiusti.
+    Sugeneruojama kvantiškai surištu daleliu pora A ir B.
+    B dalele nusiunciama ten kur norime perduoti informacija.
+    Atliekamas specialus "Bell-state" matavimas ant C ir A daleliu, kurio skirtumas persiduoda pasireiškia daleleje B.
+    
+    news:
+    Dr. Sergii su savo kolegomis paraše mokslini darba: //Kvantines komunikacijos sudetingumo pranašumas daro prielaida, kad "Bell'o nelygybe" yra klaidinga
+        Kuris teigia, kad:
+        Kvantines komunikacijos modeli galima naudoti problemu sprendimui universaliai jeigu Bell'o nelygybe gali buti paneigta.
+        Kvantine komunikacija iki šiol buvo naudojama tik specialioms problemoms spresti. 
+    
+    Pagal pasiulyta protokola, informacijos persiuntimo greitis turi aplenkti šviesos greiti.
+    
+    Kanados Calagary universiteto mokslininku grupe, vedama profesoriaus Wolfgang Tittel igyvendino štai toki eksperimenta.
+        Kvantiškai suporuotos fotonu poros puse išsiunte 6km atstumu.
+        Fotonas teliko suporuotas.
+        Sekmingai ivykde kvantine teleportacija
+        Panaudojo "dark fiber" technologija, kas iš esmes yra šviesolaidinis interneto laidas be interferencijos iš abieju galu
+        Eksperimentui prireike piko sekundes tikslumo sinchronizacijos
+        Pasiruošimas užtruko net 2 metus
+        
+    Eksperimento prasme bei išvados
+        Kvantinio interneto praktinis panaudojimas jau nera tolima ateitis
+        Nes kvantine teleportacija pavyko dabartinemis miesto salygomis
+        Iš eksperimento rezultatu, profesorius teigia, kad daugiamazgine kvantine teleportacija yra igyvendinama
+            Pavykus komunikacijai A su B galima tokiu pat budu tai testi ir suporuoti A su C per B ir taip toliau
+            
+        
+        
+    
+    
+    
+    

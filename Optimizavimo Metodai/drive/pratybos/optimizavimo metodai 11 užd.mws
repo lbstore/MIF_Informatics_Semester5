@@ -1,0 +1,77 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Text Output" -1 6 
+1 {CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 2 2 2 2 2 1 2 1 3 1 }1 1 
+0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }{PSTYLE "Maple Output" -1 12 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 
+0 1 2 2 2 2 2 2 1 1 1 1 }1 3 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 258 "###################
+#######################################\n#\n#\n#   OPTIMIZAVIMO METODA
+I\n#   11 U\336DUOTIS\n#\n#   AUTORIUS - LUKAS KLUSIS\n#   2013-12-01
+\n#\n##########################################################\n#PAST
+ABA: x1, x2, x2, x4 yra sveikieji skai\350iai!" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 29 "\nwith(linalg):\nwith(simplex):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 46 "#f:= 13.585*x1+19.536*x2+45.936*x3+
+17.9784*x4;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "f:=(x1,x2,x3
+,x4) -> 13.585*x1+19.536*x2+45.936*x3+17.9784*x4;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"fGf*6&%#x1G%#x2G%#x3G%#x4G6\"6$%)operatorG%&arrowGF
++,**&$\"&&e8!\"$\"\"\"9$F4F4*&$\"&O&>F3F49%F4F4*&$\"&Of%F3F49&F4F4*&$
+\"'%yz\"!\"%F49'F4F4F+F+F+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+420 "#apsibr\353\376iame apribojimus, taip kad pirmi 4 apribojimai b
+\373t\370 paeiliui x1,x2,x3,x4 apribojimai,\n#kurie bus redaguojami al
+goritmo metu\n\n#apsibr\353\376kime pirmus 4 nelygybes naudoti x>=* ir
+ antras 4 nelygybes x<=*\naprib:=[x1>=0,x2>=0,x3>=0,x4>=0,x1>=0,x2>=0,
+x3>=0,x4>=0,\n6.336 <= 18.49617*x1-34.35003*x2-311.79258*x3-7.92693*x4
+,\n1.3200*x1+39.600*x2+2.640*x3-18.480*x4<=34.320,\n5.434*x1+65.208*x2
+-70.642*x3+71.2842*x4<=340.56\n];" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>
+%&apribG7-1\"\"!%#x1G1F'%#x2G1F'%#x3G1F'%#x4GF&F)F+F-1$\"%Oj!\"$,**&$
+\"(<'\\=!\"&\"\"\"F(F8F8*&$\"(.]V$F7F8F*F8!\"\"*&$\")e#z6$F7F8F,F8F<*&
+$\"'$p#zF7F8F.F8F<1,**&$\"&+K\"!\"%F8F(F8F8*&$\"&+'RF2F8F*F8F8*&$\"%SE
+F2F8F,F8F8*&$\"&![=F2F8F.F8F<$\"&?V$F21,**&$\"%MaF2F8F(F8F8*&$\"&3_'F2
+F8F*F8F8*&$\"&U1(F2F8F,F8F<*&$\"'UGrFHF8F.F8F8$\"&cS$!\"#" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 2147 "skaidyti:=proc(f,r::integer, aprib::list)\n   local
+ s,i,z, sveikareiksmis,laprib,kint,rez,dal_aprib;\n   global F;\n   if
+(r = 0) then\n     F:=0.000000001;\n   end if;\n   laprib:=aprib;\n   \+
+kint:=[x1,x2,x3,x4];\n   dal_aprib:=\{aprib[1],aprib[2],aprib[3],aprib
+[4],aprib[5],aprib[6],aprib[7],aprib[8]\};\n\n   sveikareiksmis:=true;
+\n   #d\353l visa ko pikto, jeigu algoritme b\373t\370 palikta klaid
+\370 ir algoritmas u\376siciklint\370, palieku apribojim\340, kiek mak
+simaliai gali dirbti.\n   if( r>20000000) then\n     #print( \"daugiau
+ nei 20000000\");\n     return;\n   end if;\n   \n   #surandame sprend
+inius \n   s:=maximize(f(x1,x2,x3,x4), laprib);\n\n   #jeigu n\353ra s
+prendini\370, tai i\360braukiame i\360 TPU ir gr\341\376tame prie anks
+tensio darbo\n   if(nops(s) = 0) then\n     #daliniai rezultatai:\n   \+
+  #printf(\"TPU-%d: x*=%a aprib: %a \\n\",r,s,dal_aprib);\n     return
+;\n   else\n      #daliniai rezultatai:\n      #printf(\"TPU-%d: x*=%a
+, f(x*)=%f, aprib: %a \\n\",r,s,f(rhs(s[1]),rhs(s[2]),rhs(s[3]),rhs(s[
+4])),dal_aprib);\n   end if;\n\n      \n\n   #jeigu maksimali nesveika
+rei\360mio sprendinio reik\360m\353 yra ma\376esn\353 u\376 F (surasta
+m maksimaliam sveikareik\360mio sprendinio funkcijos f(x1,x2,x3,x4) re
+ik\360m\353) tai i\360braukiame i\360 TPU, nes vistiek didesn\353s rei
+k\360m\353s nebegausime\n   if(f(rhs(s[1]),rhs(s[2]),rhs(s[3]),rhs(s[4
+])) < F) then\n     return;\n   end if;\n\n   for i from 1 to 4 do\n  \+
+   # patikriname ar sprendiniai sveikareik\360miai, atsi\376velgiant \+
+\341 galimas paklaidas\n     # jeigu reik\360m\353s skiriasi nuo sveik
+ojo skai\350io tik nuo 7 (ir daugiau) skai\350iaus\n     # po kablelio
+ tai laikome \360\341 skai\350i\370 sveikuoju\n     if(  abs(rhs(s[i])
+-round(rhs(s[i]))) > 0.0000001 ) then\n        sveikareiksmis:= false;
+\n        z:=floor(rhs(s[i])):\n        laprib[4+i]:=z>=kint[i];\n    \+
+    skaidyti(f,2*r+1,laprib);\n\n        laprib:=aprib;\n        lapri
+b[i] :=z+1<=kint[i];\n        skaidyti(f,2*r+2,laprib);\n        break
+;\n     end if;\n   end do;\n   if(sveikareiksmis) then\n     rez:=[x1
+=round(rhs(s[1])),x2=round(rhs(s[2])),x3=round(rhs(s[3])),x4=round(rhs
+(s[4]))];\n     F:=f(rhs(rez[1]),rhs(rez[2]),rhs(rez[3]),rhs(rez[4]));
+\n     \n     printf(\"sveikareiksmis TPU-%d: %a, %a, f(x*)=%f \\n\",r
+, rez, dal_aprib, F);\n   end if;\nend proc:\n" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 20 "skaidyti(f,0,aprib);" }}{PARA 6 "" 1 "" {TEXT 
+-1 151 "sveikareiksmis TPU-31: [x1 = 62, x2 = 0, x3 = 3, x4 = 3], \{0 \+
+<= x1, 0 <= x2, 0 <= x3, 0 <= x4, x1 <= 62, x2 <= 0, x3 <= 3, x4 <= 3
+\}, f(x*)=1034.013200 " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 2 "F;
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\")K,M5!\"%" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "8 0 0" 0 }{VIEWOPTS 1 1 0 1 1 
+1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

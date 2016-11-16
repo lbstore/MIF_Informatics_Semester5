@@ -1,0 +1,34 @@
+a=2
+b=2
+f = ((x**2-a**2)**2)/b - 1
+
+epsilon = 0.1
+right = 10
+left = 0
+xm = (right+left)/2
+difference = right - left
+fxm = f(xm)
+
+var('x')
+iteration=0
+plot(f,(-5,5))
+print()
+while difference > epsilon:
+    x1 = left + difference/4
+    x2 = right - difference/4
+    fx1 = f(x1)
+    fx2 = f(x2)
+    if fx1 < fxm :
+        right = xm
+        xm = x1
+    elif fx2 < fxm:
+        left = xm
+        xm = x2
+    else:
+        left = x1
+        right = x2
+    fxm = f(xm)
+    difference = right - left
+    iteration+=1
+    print(str(iteration)+":\t"+str(numerical_approx(left)))+" "+str(numerical_approx(xm))+" "+str(numerical_approx(right))
+print("Vidurio taškas "+str(numerical_approx(xm)))

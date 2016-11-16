@@ -1,0 +1,52 @@
+def toStr(*ob):
+    s = ""
+    for arg in ob:
+        s+=" "
+        s+=str(numerical_approx(ob))
+    return s
+a=2
+b=2
+f = ((x**2-a**2)**2)/b - 1
+fi = (-1 + sqrt(5))/2
+epsilon = 0.1
+7/10
+10/15
+14/18
+17/24
+
+
+right = 10
+left = 0
+numerical_approx(fi)
+difference = right - left
+xL = right - fi*difference
+xR = left + fi*difference
+var('x')
+iteration=0
+plot(f,(-5,5))
+print()
+fxR = f(xR)
+fxL = f(xL)
+print(toStr(fxR,fxL))
+
+while difference > epsilon:
+    if f(xR) < f(xL) :
+        left = xL
+        difference = right - left
+        xL = xR
+        xR = left + fi*difference
+        fxR = f(xR)
+        print(toStr(f(xR))+" "+toStr(fxR))
+        print("change left")
+    else:
+        right = xR
+        difference = right - left
+        xR = xL
+        xL = right - fi*difference
+        fxL = f(xL)
+        print("change right")
+    iteration+=1
+    #plot(f,(left,right))
+    print(str(iteration)+":\t"+str(numerical_approx(left)))+" "+str(numerical_approx(right))
+    
+print("Vidurio taškas "+str(numerical_approx((left+right)/2)))
