@@ -1,0 +1,9 @@
+﻿1. Panaudoti Krafto neligybę ir paaiškinti ar kodavimas įmanomas. (Jei taip - pvz, jei ne - įrodyti)
+2. Duotos sistemos:
+	S  = {X,Y,Z} P(x) = 0.5 P(Y) = 0.2
+	S^2 (Dekarto sandauga aibės S (9 elementai))
+	Rasti vidutinį žodžio ilgį binarinėje koduotėje. Kieno geresnis spaudimo koeficientas?
+3. Duota trinario kanalo matrica.
+	Rasti didžiausio tikėtinumo taisyklę jai.
+	Rasti kodavimą pagal tą taisyklę.
+	Rasti maksimalios klaidos tikimybę
