@@ -1,0 +1,620 @@
+%\PassOptionsToPackage{coloremph,colormath,colorhighlight,darkbackground,sans}{texpower}
+\PassOptionsToPackage{coloremph,colormath,colorhighlight,whitebackground,sans}{texpower}
+\input{__TPpble}
+\input{hilite}
+\hypersetup{pdftitle={ Linear Programming: Chapter 15 \\ 
+Structural Optimization}}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{graphicx}
+\delimitershortfall-1sp
+\boldmath
+
+\let\origbf=\bf
+\renewcommand{\bf}{\origbf \color{blue}}
+
+\newenvironment{mylist}{
+		\begin{list}%
+		{}{
+		\parsep=0.2in
+		\listparindent=0in
+		\leftmargin=0.25in
+		\rightmargin=0.25in
+		}
+	}{
+		\end{list}
+	}
+
+\newenvironment{alignedt}{
+                \setlength{\arraycolsep}{0.1em}
+                \begin{array}[t]{rll}
+                \displaystyle
+        }{
+                \end{array}
+        }
+
+\newenvironment{gequation}{
+		\begin{equation*}
+		\color{green}
+	}{
+		\end{equation*}
+	}
+
+\newenvironment{geqnarray}{
+		\begin{eqnarray*}
+		\color{green}
+	}{
+		\end{eqnarray*}
+	}
+
+\newcommand{\mysection}[1]{
+		{\color{blue}
+		\section{\rmfamily \LARGE #1}
+		}
+	}
+
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{subseccolor}{rgb}{0.2,0,0.7}
+
+\newcommand{\mysubsection}[1]{
+	\subsection*{\rmfamily \Large \color{subseccolor} #1}
+}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{defn}{Definition}
+
+\newcommand{\N}{{\mathcal N}}
+\newcommand{\A}{{\mathcal A}}
+\newlength{\hh}
+\newcommand{\+}{\phantom{+}}
+
+\newcommand{\Dx}{{\Delta x}}
+\newcommand{\Dy}{{\Delta y}}
+\newcommand{\Dw}{{\Delta w}}
+\newcommand{\Dz}{{\Delta z}}
+
+\begin{document}	   			
+\begin{slide}
+\title{\color{orange} Linear Programming: Chapter 16 \\ Interior-Point
+Methods}
+\author{\color{orange} Robert J. Vanderbei}
+\maketitle
+\vfill
+        {Operations Research and Financial Engineering \\
+	Princeton University \\
+	Princeton, NJ 08544 \\
+	%\protect\color{white}
+	\href{http://www.princeton.edu/~rvdb}
+	{\color{red} http://www.princeton.edu/$\sim$rvdb}
+	}
+
+\end{slide}
+
+\begin{slide}
+\mysection{Interior-Point Methods---The Breakthrough}
+\hs{
+\vfill
+
+\begin{tabular}{rl}
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip1.pdf}}
+\end{center}
+\end{minipage}
+&
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip2.pdf}}
+\end{center}
+\end{minipage}
+\end{tabular}
+
+%\vfill 
+%}
+%\end{slide}
+%
+%\begin{slide}
+%\mysection{Time Magazine Joins In}
+%\hs{
+%\vfill
+
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{The Wall Street Journal Waits 'Till 1986}
+\hs{
+\vfill
+
+\begin{tabular}{rl}
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip3.pdf}}
+\end{center}
+\end{minipage}
+&
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip4.pdf}}
+\end{center}
+\end{minipage}
+\end{tabular}
+
+
+%\vfill 
+%}
+%\end{slide}
+%
+%\begin{slide}
+%\mysection{Even Business Week Joins In}
+%\hs{
+%\vfill
+
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{AT\&T Patents the Algorithm, Announces KORBX}
+\hs{
+\vfill
+
+\begin{tabular}{rl}
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip5.pdf}}
+\end{center}
+\end{minipage}
+&
+\begin{minipage}{3in}
+\begin{center}
+\mbox{\includegraphics[width=3in]{../newsclip6.pdf}}
+\end{center}
+\end{minipage}
+\end{tabular}
+
+
+%\vfill 
+%}
+%\end{slide}
+%
+%\begin{slide}
+%\mysection{AT\&T Announces the KORBX System}
+%\hs{
+%\vfill
+
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{What Makes LP Hard?}
+\hs{
+\vfill
+
+\begin{tabular}{rl}
+\begin{minipage}{3in}
+{\em Primal}
+\[
+        \begin{array}{ll}
+            \mbox{maximize }   & c^T x                          \\
+            \mbox{subject to } & \begin{alignedt}
+                                     Ax + w & = b \\
+                                      x,w & \ge 0
+                                 \end{alignedt}
+        \end{array}
+\]
+\end{minipage}
+&
+\begin{minipage}{3in}
+{\em Dual}
+\[
+        \begin{array}{ll}
+            \mbox{minimize }   & b^T y                          \\
+            \mbox{subject to } & \begin{alignedt}
+                                     A^Ty - z & = c \\
+                                       y,z  & \ge 0 
+                                 \end{alignedt}
+        \end{array}
+\]
+\end{minipage}
+\end{tabular}
+
+{\em Complementarity Conditions}
+
+\begin{eqnarray*}
+    x_j z_j & = & 0 \qquad j = 1,2,\ldots,n \\
+    w_i y_i & = & 0 \qquad i = 1,2,\ldots,m \\
+\end{eqnarray*}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Matrix Notation}
+\hs{
+\vfill
+
+\begin{mylist}
+    \item
+	Can't write $x z = 0$.  The product $x z$ is undefined.
+    \item
+	Instead, introduce a new notation:
+	\[
+	    x =
+	    \begin{bmatrix}
+	        x_1 \\
+	        x_2 \\
+	        \vdots \\
+	        x_n
+	    \end{bmatrix}
+	    \quad
+	    \Longrightarrow
+	    \quad
+	    X =
+	    \setlength{\arraycolsep}{0.4em}
+	    \begin{bmatrix}
+	        x_1 &     &        &     \\
+	            & x_2 &        &     \\
+	            &     & \ddots &     \\
+	            &     &        & x_n
+	    \end{bmatrix} 
+	\]
+    \item
+	Then the complementarity conditions can be written as:
+	\begin{eqnarray*}
+	    X Z e & = & 0 \\
+	    W Y e & = & 0 
+	\end{eqnarray*}
+\end{mylist}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Optimality Conditions}
+\hs{
+\vfill
+
+\begin{eqnarray*}
+     A  x + w & = & b \\
+    A^T y - z & = & c \\
+    Z X e & = & 0 \\
+    W Y e & = & 0 \\
+    w, x, y, z & \ge & 0 
+\end{eqnarray*}
+
+\begin{mylist}
+    \item
+	Ignore (temporarily) the nonnegativities.
+    \item
+	$2n+2m$ equations in $2n+2m$ unknowns.
+    \item
+	Solve'em.
+    \item
+	Hold on.  Not all equations are linear.
+\end{mylist}
+
+\begin{quote}
+\bf
+It is the nonlinearity of the complementarity conditions that makes LP
+fundamentally harder than solving systems of equations.
+\end{quote}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{The Interior-Point Paradigm}
+\hs{
+\vfill
+
+\begin{mylist}
+    \item
+	Since we're ignoring nonnegativities, it's best to
+	replace complementarity with $\mu$-complementarity:
+	\begin{eqnarray*}
+	     A  x + w & = & b \\
+	    A^T y - z & = & c \\
+	    Z X e & = & \mu e \\
+	    W Y e & = & \mu e 
+	\end{eqnarray*}
+    \item
+	Start with an arbitrary (positive) initial guess: $x$, $y$, $w$, $z$.
+    \item
+	Introduce {\em step directions}: $\Dx$, $\Dy$, $\Dw$, $\Dz$.
+    \item
+	Write the above equations for $x+\Dx$, $y+\Dy$, $w+\Dw$, and $z+\Dz$:
+	\begin{eqnarray*}
+	     A  (x+\Dx) + (w+\Dw) & = & b \\
+	    A^T (y+\Dy) - (z+\Dz) & = & c \\
+	    (Z+\Delta Z) (X+\Delta X) e & = & \mu e \\
+	    (W+\Delta W) (Y+\Delta Y) e & = & \mu e 
+	\end{eqnarray*}
+\end{mylist}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Paradigm Continued}
+\hs{
+\vfill
+
+\begin{mylist}
+    \item
+	Rearrange with ``delta'' variables on left and drop nonlinear terms on
+	left:
+	\begin{eqnarray*}
+	     A  \Dx + \Dw & = & b - Ax - w \\
+	    A^T \Dy - \Dz & = & c - A^T y + z \\
+	    Z \Dx + X \Dz & = & \mu e - ZXe \\
+	    W \Dy + Y \Dw & = & \mu e - WYe
+	\end{eqnarray*}
+    \item
+	This is a {\bf linear} system of $2m+2n$ equations in $2m+2n$
+	unknowns.  
+    \item
+	Solve'em.
+    \item
+	Dampen the step lengths, if necessary, to maintain positivity.
+    \item
+	Step to a new point:
+	\begin{eqnarray*}
+	    x & \longleftarrow & x + \theta \Dx \\
+	    y & \longleftarrow & y + \theta \Dy \\
+	    w & \longleftarrow & w + \theta \Dw \\
+	    z & \longleftarrow & z + \theta \Dz 
+	\end{eqnarray*}
+	($\theta$ is the scalar damping factor).
+\end{mylist}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Paradigm Continued}
+\hs{
+\vfill
+
+\begin{mylist}
+    \item
+	Pick a smaller value of $\mu$ for the next iteration.
+    \item
+	Repeat from beginning until current solution satisfies, within a
+	tolerance, optimality conditions:
+	\begin{description}
+	    \item[primal feasibility] $b -  A  x - w = 0$.
+	    \item[dual feasibility]   $c - A^T y + z = 0$.
+	    \item[duality gap] $b^T y - c^T x = 0$.
+	\end{description}
+\end{mylist}
+
+{\bf Theorem.} 
+\begin{itemize}
+    \item
+	Primal infeasibility gets smaller by a factor of $1 - \theta$ at 
+	every iteration.
+    \item
+	Dual infeasibility gets smaller by a factor of $1 - \theta$ at 
+	every iteration.
+    \item
+	If primal and dual are feasible, then duality gap decreases by a factor
+	of $1 - \theta$ at every iteration (if $\mu = 0$, slightly slower
+	convergence if $\mu > 0$).
+\end{itemize}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{\sc loqo}
+\vfill
+
+\begin{mylist}
+    \item
+	Hard/impossible to ``do'' an interior-point method by hand.
+    \item
+	Yet, easy to program on a computer (solving large systems of equations
+	is routine).
+    \item
+	LOQO implements an interior-point method.
+    \item
+	Setting {\tt option loqo\_options 'verbose=2' }
+        in AMPL produces the following ``typical'' output:
+\end{mylist}
+
+\vfill 
+\end{slide}
+
+\begin{slide}
+\mysection{{\sc loqo} Output}
+\vfill
+{
+\scriptsize
+\begin{verbatim}
+variables: non-neg   1350,  free        0,  bdd          0,  total     1350
+constraints: eq       146,  ineq        0,  ranged       0,  total      146
+nonzeros:    A       5288,  Q           0
+nonzeros:    L       7953,  arith_ops             101444
+---------------------------------------------------------------------------
+      |         Primal            |           Dual            | Sig        
+Iter  |  Obj Value      Infeas    |   Obj Value      Infeas   | Fig  Status
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   1  -7.8000000e+03   1.55e+03     5.5076028e-01   4.02e+01               
+   2   2.6725737e+05   7.84e+01     1.0917132e+00   1.65e+00               
+   3   1.1880365e+05   3.92e+00     4.5697310e-01   2.02e-13             DF
+   4   6.7391043e+03   2.22e-01     7.2846138e-01   1.94e-13             DF
+   5   9.5202841e+02   3.12e-02     5.4810461e+00   1.13e-14             DF
+   6   2.1095320e+02   6.03e-03     2.7582307e+01   4.15e-15             DF
+   7   8.5669013e+01   1.36e-03     4.2343105e+01   2.48e-15             DF
+   8   5.8494756e+01   3.42e-04     4.6750024e+01   2.73e-15     1       DF
+   9   5.1228667e+01   8.85e-05     4.7875326e+01   2.59e-15     1       DF
+  10   4.9466277e+01   2.55e-05     4.8617380e+01   2.86e-15     2       DF
+  11   4.8792989e+01   1.45e-06     4.8736603e+01   2.71e-15     3    PF DF
+  12   4.8752154e+01   7.26e-08     4.8749328e+01   3.36e-15     4    PF DF
+  13   4.8750108e+01   3.63e-09     4.8749966e+01   3.61e-15     6    PF DF
+  14   4.8750005e+01   1.81e-10     4.8749998e+01   2.91e-15     7    PF DF
+  15   4.8750000e+01   9.07e-12     4.8750000e+01   3.21e-15     8    PF DF
+----------------------
+OPTIMAL SOLUTION FOUND
+\end{verbatim}
+}
+
+\vfill 
+\end{slide}
+
+\begin{slide}
+\mysection{A Generalizable Framework}
+\hs{
+\vfill
+
+\begin{tabular}[t]{ll}
+\begin{minipage}[t]{3in}
+	Start with an optimization problem---in this case LP:
+\end{minipage}
+&
+\begin{minipage}[t]{3in}
+	\[
+		\begin{array}{ll}
+		    \mbox{maximize }   & c^T x                          \\
+		    \mbox{subject to } & \begin{alignedt}
+					     Ax & \le b \\
+					      x & \ge 0
+					 \end{alignedt}
+		\end{array}
+	\]
+\end{minipage}
+\end{tabular}
+
+\begin{tabular}[t]{ll}
+\begin{minipage}[t]{3in}
+	Use slack variables to make all inequality constraints into 
+	nonnegativities:
+\end{minipage}
+&
+\begin{minipage}[t]{3in}
+	\[
+		\begin{array}{ll}
+		    \mbox{maximize }   & c^T x                          \\
+		    \mbox{subject to } & \begin{alignedt}
+					     Ax + w & = b \\
+					      x,w & \ge 0
+					 \end{alignedt}
+		\end{array}
+	\]
+\end{minipage}
+\end{tabular}
+
+\begin{mylist}
+    \item
+	Replace nonnegativity constraints with {\em logarithmic barrier terms}
+	in the objective:
+
+	\[
+		\begin{array}{ll}
+		    \mbox{maximize }   & c^T x 
+					 + \mu \sum_j \log x_j 
+					 + \mu \sum_i \log w_i \\
+		    \mbox{subject to } & \begin{alignedt}
+					     Ax + w & = b 
+					 \end{alignedt}
+		\end{array}
+	\]
+    \item
+	Incorporate the equality constraints into the objective using {\em
+	Lagrange multipliers}:
+
+	\[
+	    L(x,w,y) = 
+	    c^T x + \mu \sum_j \log x_j + \mu \sum_i \log w_i 
+	     + y^T(b - Ax - w) 
+	\]
+    \item
+	Set derivatives to zero:
+	\begin{eqnarray*}
+	    c + \mu X^{-1} e - A^T y & = & 0 \qquad \mbox{(deriv wrt $x$)} \\
+	        \mu W^{-1} e -     y & = & 0 \qquad \mbox{(deriv wrt $w$)} \\
+	            b - A x - w      & = & 0 \qquad \mbox{(deriv wrt $y$)} 
+	\end{eqnarray*}
+    \item
+	Introduce {\em dual complementary variables}:
+	\[
+	    z = \mu X^{-1} e
+	\]
+    \item
+	Rewrite system:
+	\begin{eqnarray*}
+	           c + z - A^T y & = & 0 \\
+			  X Z e  & = & \mu e \\
+			  W Y e  & = & \mu e \\
+	            b - A x - w  & = & 0 
+	\end{eqnarray*}
+\end{mylist}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Logarithmic Barrier Functions}
+\hs{
+\vfill
+
+Plots of $\mu \log x$ for various values of $\mu$:
+
+\begin{center}
+\text{\includegraphics[width=3in]{../mu_log.pdf}}
+\end{center}
+
+\vfill 
+}
+\end{slide}
+
+\begin{slide}
+\mysection{Lagrange Multipliers}
+\hs{
+\vfill
+
+\[
+        \begin{array}{ll}
+            \text{maximize }   & f(x) \\
+            \text{subject to } & g(x) = 0 
+        \end{array}
+\]
+
+\begin{center}
+\text{\includegraphics[width=4in]{../lagrange1.pdf}}
+\end{center}
+
+\[
+        \begin{array}{ll}
+            \text{maximize }   & f(x) \\
+            \text{subject to } & \begin{alignedt}
+                                     g_1(x) & = 0 \\
+                                     g_2(x) & = 0 
+                                 \end{alignedt}
+        \end{array}
+\]
+
+\begin{center}
+\text{\includegraphics[width=4in]{../lagrange2.pdf}}
+\end{center}
+
+\vfill 
+}
+\end{slide}
+
+
+\end{document}

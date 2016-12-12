@@ -1,0 +1,132 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "with(linalg):" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 95 "f:=101822.1792*y^2 + 1213169.801*y - 203644.3
+584*y*x+3600683.373-1205980.178*x+102822.1792*x^2;" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%\"fG,.*&$\"+#z@#=5!\"%\"\"\")%\"yG\"\"#F*F**&$\"+,)
+pJ@\"!\"$F*F,F*F**($\"+%eVk.#F)F*F,F*%\"xGF*!\"\"$\"+tLo+OF1F**&$\"+y,
+)f?\"F1F*F5F*F6*&$\"+#z@#G5F)F*)F5F-F*F*" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 48 "epsilon := 0.0001; \nM:=12;\nk:=0;\nx0:=1;\ny0:=-1;\n
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(epsilonG$\"\"\"!\"%" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"MG\"#7" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%\"kG\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#x0G\"\"\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#y0G!\"\"" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 25 "mx0:=matrix([[x0],[y0]]);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%$mx0GK%'matrixG6#7$7#\"\"\"7#!\"\"Q(pprint06\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "Gradientas:=grad(f,vector([x
+,y]));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+GradientasGK%'vectorG6#7$
+,(*&$\"+%eVk.#!\"%\"\"\"%\"yGF.!\"\"$\"+y,)f?\"!\"$F0*&$\"+%eVk0#F-F.%
+\"xGF.F.,(*&$\"+%eVk.#F-F.F/F.F.$\"+,)pJ@\"F3F.*&$\"+%eVk.#F-F.F7F.F0Q
+(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "G1:=Gradient
+as[1];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#G1G,(*&$\"+%eVk.#!\"%\"\"
+\"%\"yGF*!\"\"$\"+y,)f?\"!\"$F,*&$\"+%eVk0#F)F*%\"xGF*F*" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "G2:=Gradientas[2];" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%#G2G,(*&$\"+%eVk.#!\"%\"\"\"%\"yGF*F*$\"+,)pJ@\"
+!\"$F**&$\"+%eVk.#F)F*%\"xGF*!\"\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 20 "H:=hessian(f,[x,y]);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#>%\"HGK%'matrixG6#7$7$$\"+%eVk0#!\"%$!+%eVk.#F,7$F-$\"+%eVk.#F,Q(pp
+rint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "x:=x0;\ny:=y0;
+\nG1;\nG2;\nfx1:= f;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"xG\"\"\"" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"yG!\"\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#$!+;Y\"p'z!\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+Y
+3\")e!)!\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$fx1G$\"+5@#)*e\"!\"$
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "G:=matrix([[G1],[G2]]);
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"GGK%'matrixG6#7$7#$!+;Y\"p'z!
+\"%7#$\"+Y3\")e!)F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 31 "Ilgis:=sqrt(G1^2+G2^2)>epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%&IlgisG2$\"\"\"!\"%$\"+Y&3K8\"!\"$" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 4 "k<M;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2\"\"!\"#7" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "HH:=inverse(H);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%#HHGK%'matrixG6#7$7$$\"+$3+++&!#8F*7$F*$\"
++*H0\"\\]F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "
+eigenvals(H);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$$\"0.;0aZa(**!#7$\"0[
+f/s6H3%!\"*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "d0:=multiply
+(-HH,G);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#d0GK%'matrixG6#7$7#$!);
+\"[f%!\"(7#$!)\"3@b)F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 19 "x1:=matadd(mx0,d0);" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%#x1GK%'matrixG6#7$7#$!);\"[f$!\"(7#$!)\"3@b*F,Q(pprint06\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 82 "evalf(abs(sqrt((x1[1,1])^2+(
+x1[2,1])^2)-sqrt((mx0[1,1])^2+(mx0[2,1])^2)))>epsilon;" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#2$\"\"\"!\"%$\"+)eL>z)!\"*" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 43 "#====================ANTRAS================" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 7 "k:=k+1;" }}{PARA 11 "" 0 "
+" {TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"kG\"\"\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "x:=x1[1,1];\ny:=x1[2,1];" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"xG$!);\"[f$!\"(" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%\"yG$!)\"3@b*!\"(" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 15 "G1;\nG2;\nfx2:=f;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+$\"$>#!\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$!$@#!\"%" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%$fx2G$!)J`%e#!\"$" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 23 "G:=matrix([[G1],[G2]]);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"GGK%'matrixG6#7$7#$\"$>#!\"%7#$!$@#F,Q(pprint06\"" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "Ilgis:=sqrt(G1^2+G2^2)>ep
+silon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&IlgisG2$\"\"\"!\"%$\"+y>I
+6J!#6" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "k<M;" }}{PARA 11 "
+" 0 "" {TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2\"\"\"\"#7" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "d1:=multiply(-HH,G);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#d1GK%'matrixG6#7$7#$\")+++5!#97#$\"
+)`A&3#F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "x2:
+=matadd(x1,d1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#x2GK%'matrixG6#7
+$7#$!++:\"[f$!\"*7#$!+\"*y5_&*F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 81 "evalf(abs(sqrt((x2[1,1])^2+(x2[2,1])^2)- sqrt((x
+1[1,1])^2+(x1[2,1])^2)))<epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2
+$\"#B!\")$\"\"\"!\"%" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "abs
+(fx2-fx1)>epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2$\"\"\"!\"%$\"+
+Tum:;!\"$" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "#=============
+========TRECIAS======================" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 7 "k:=k+1;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"kG\"\"#
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "x:=x2[1,1];\ny:=x2[2,1]
+;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"xG$!++:\"[f$!\"*" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#>%\"yG$!+\"*y5_&*!\"*" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 15 "G1;\nG2;\nfx3:=f;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#$\"\"&!\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$!\"&!\"%" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$fx3G$!)N`%e#!\"$" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 23 "G:=matrix([[G1],[G2]]);" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%\"GGK%'matrixG6#7$7#$\"\"&!\"%7#$!\"&F,Q(pprint06
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "Ilgis:=sqrt(G1^2+G2^2
+)>epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&IlgisG2$\"\"\"!\"%$\"
++7y1rq!#8" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "k<M;" }}{PARA 
+11 "" 0 "" {TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2\"\"#\"#7
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "d2:=multiply(-HH,G);" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#d2GK%'matrixG6#7$7#$\"\"!F+7#$\")3
+EbC!#;Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "x3:=m
+atadd(x1,d1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#x3GK%'matrixG6#7$7
+#$!++:\"[f$!\"*7#$!+\"*y5_&*F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 81 "evalf(abs(sqrt((x2[1,1])^2+(x2[2,1])^2)- sqrt((x1[1
+,1])^2+(x1[2,1])^2)))<epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2$\"
+#B!\")$\"\"\"!\"%" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "abs(fx
+3-fx2)>epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2$\"\"\"!\"%$\"\"%!
+\"$" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "#===================
+================KETVIRTAS================" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 7 "k:=k+1;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"kG\"\"$" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 23 "x:=x3[1,1];\ny:=x3[2,1];" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"xG$!++:\"[f$!\"*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>%\"yG$!+\"*y5_&*!\"*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "G
+1;\nG2;\nfx4:=f;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"\"&!\"%" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#$!\"&!\"%" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%$fx4G$!)N`%e#!\"$" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 23 "G:=matrix([[G1],[G2]]);" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%\"GGK%'matrixG6#7$7#$\"\"&!\"%7#$!\"&F,Q(pprint06\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "Ilgis:=sqrt(G1^2+G2^2)>epsil
+on;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&IlgisG2$\"\"\"!\"%$\"+7y1rq!
+#8" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "k<M;" }}{PARA 11 "" 0 
+"" {TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2\"\"$\"#7" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "d3:=multiply(-HH,G);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#d3GK%'matrixG6#7$7#$\"\"!F+7#$\")3E
+bC!#;Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "x4:=ma
+tadd(x1,d1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#x4GK%'matrixG6#7$7#
+$!++:\"[f$!\"*7#$!+\"*y5_&*F,Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 81 "evalf(abs(sqrt((x2[1,1])^2+(x2[2,1])^2)- sqrt((x1[1
+,1])^2+(x1[2,1])^2)))<epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2$\"
+#B!\")$\"\"\"!\"%" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "abs(fx
+4-fx3)>epsilon;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#2$\"\"\"!\"%$\"\"!F
+(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "51 0 0" 0 
+}{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
