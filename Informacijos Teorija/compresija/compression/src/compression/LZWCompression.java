@@ -11,6 +11,7 @@ package compression;
  */
 import java.io.*;
 import java.util.*;
+import javafx.concurrent.Task;
 
 public class LZWCompression {
 
@@ -40,102 +41,93 @@ public class LZWCompression {
 	 */
 	public void LZW_Compress(String input, String output) throws IOException {
 
-		/** Initialize the variables */
+            /** Initialize the variables */
 
-		Array_char = new String[maxDicSize];
-		for (int i = 0; i < 256; i++) {
-			table.put(Character.toString((char) i), i);
-			Array_char[i] = Character.toString((char) i);
-		}
-		count = 256;
+            Array_char = new String[maxDicSize];
+            for (int i = 0; i < 256; i++) {
+                    table.put(Character.toString((char) i), i);
+                    Array_char[i] = Character.toString((char) i);
+            }
+            count = 256;
 
-		/** Pointer to input and output file */
-		DataInputStream read = new DataInputStream(new BufferedInputStream(
-				new FileInputStream(input)));
-                
-		DataOutputStream out = new DataOutputStream(new BufferedOutputStream(
-				new FileOutputStream(output)));
+            /** Pointer to input and output file */
+            DataInputStream read = new DataInputStream(new BufferedInputStream(new FileInputStream(input)));
 
-                /** Local Variables */
-		byte input_byte;
-		String temp = "";
-		byte[] buffer = new byte[3];
-		boolean onleft = true;
+            DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(output)));
+            out.writeInt(maxDicSize);
+            /** Local Variables */
+            byte input_byte;
+            String temp = "";
+            byte[] buffer = new byte[3];
+            boolean onleft = true;
 
-		try {
+            try {
 
-			/** Read the First Character from input file into the String */
-			input_byte = read.readByte();
-			int i = new Byte(input_byte).intValue();
-			if (i < 0) {
-				i += 256;
-			}
-			char c = (char) i;
-			temp = "" + c;
+                /** Read the First Character from input file into the String */
+                input_byte = read.readByte();
+                int i = new Byte(input_byte).intValue();
+                if (i < 0) {
+                        i += 256;
+                }
+                char c = (char) i;
+                temp = "" + c;
 
-			/** Read Character by Character */
-			while (true) {
-				input_byte = read.readByte();
-				i = new Byte(input_byte).intValue();
+                /** Read Character by Character */
+                while (true) {
+                        input_byte = read.readByte();
+                        i = new Byte(input_byte).intValue();
 
-				if (i < 0) {
-					i += 256;
-				}
-				c = (char) i;
+                        if (i < 0) {
+                                i += 256;
+                        }
+                        c = (char) i;
 
-				if (table.containsKey(temp + c)) {
-					temp = temp + c;
-				} else {
-					String s12 = to12bit(table.get(temp));
-					/**
-					 * Store the 12 bits into an array and then write it to the
-					 * output file
-					 */
+                        if (table.containsKey(temp + c)) {
+                                temp = temp + c;
+                        } else {
+                                String s12 = to12bit(table.get(temp));
+                                /**
+                                 * Store the 12 bits into an array and then write it to the
+                                 * output file
+                                 */
 
-					if (onleft) {
-						buffer[0] = (byte) Integer.parseInt(
-								s12.substring(0, 8), 2);
-						buffer[1] = (byte) Integer.parseInt(
-								s12.substring(8, 12) + "0000", 2);
-					} else {
-						buffer[1] += (byte) Integer.parseInt(
-								s12.substring(0, 4), 2);
-						buffer[2] = (byte) Integer.parseInt(
-								s12.substring(4, 12), 2);
-						for (int b = 0; b < buffer.length; b++) {
-							out.writeByte(buffer[b]);
-							buffer[b] = 0;
-						}
-					}
-					onleft = !onleft;
-					if (count < maxDicSize) {
-						table.put(temp + c, count++);
-					}
-					temp = "" + c;
-				}
-			}
+                                if (onleft) {
+                                    buffer[0] = (byte) Integer.parseInt(s12.substring(0, 8), 2);
+                                    buffer[1] = (byte) Integer.parseInt(s12.substring(8, 12) + "0000", 2);
+                                } else {
+                                    buffer[1] += (byte) Integer.parseInt(s12.substring(0, 4), 2);
+                                    buffer[2] = (byte) Integer.parseInt(s12.substring(4, 12), 2);
+                                    for (int b = 0; b < buffer.length; b++) {
+                                            out.writeByte(buffer[b]);
+                                            buffer[b] = 0;
+                                    }
+                                }
+                                onleft = !onleft;
+                                if (count < maxDicSize) {
+                                        table.put(temp + c, count++);
+                                }
+                                temp = "" + c;
+                        }
+                }
 
-		} catch (EOFException e) {
-			String temp_12 = to12bit(table.get(temp));
-			if (onleft) {
-				buffer[0] = (byte) Integer.parseInt(temp_12.substring(0, 8), 2);
-				buffer[1] = (byte) Integer.parseInt(temp_12.substring(8, 12)
-						+ "0000", 2);
-				out.writeByte(buffer[0]);
-				out.writeByte(buffer[1]);
-			} else {
-				buffer[1] += (byte) Integer
-						.parseInt(temp_12.substring(0, 4), 2);
-				buffer[2] = (byte) Integer
-						.parseInt(temp_12.substring(4, 12), 2);
-				for (int b = 0; b < buffer.length; b++) {
-					out.writeByte(buffer[b]);
-					buffer[b] = 0;
-				}
-			}
-			read.close();
-			out.close();
-		}
+            } catch (EOFException e) {
+                String temp_12 = to12bit(table.get(temp));
+                if (onleft) {
+                    buffer[0] = (byte) Integer.parseInt(temp_12.substring(0, 8), 2);
+                    buffer[1] = (byte) Integer.parseInt(temp_12.substring(8, 12) + "0000", 2);
+                    out.writeByte(buffer[0]);
+                    out.writeByte(buffer[1]);
+            } else {
+                    buffer[1] += (byte) Integer.parseInt(temp_12.substring(0, 4), 2);
+                    buffer[2] = (byte) Integer.parseInt(temp_12.substring(4, 12), 2);
+                    for (int b = 0; b < buffer.length; b++) {
+                        out.writeByte(buffer[b]);
+                        buffer[b] = 0;
+                    }
+                }
+                read.close();
+                out.close();
+            }
 
 	}
 
@@ -157,27 +149,27 @@ public class LZWCompression {
 	 * @return an Integer which holds the value of the key
 	 */
 	public int getvalue(byte b1, byte b2, boolean onleft) {
-		String temp1 = Integer.toBinaryString(b1);
-		String temp2 = Integer.toBinaryString(b2);
-		while (temp1.length() < 8) {
-			temp1 = "0" + temp1;
-		}
-		if (temp1.length() == 32) {
-			temp1 = temp1.substring(24, 32);
-		}
-		while (temp2.length() < 8) {
-			temp2 = "0" + temp2;
-		}
-		if (temp2.length() == 32) {
-			temp2 = temp2.substring(24, 32);
-		}
+            String temp1 = Integer.toBinaryString(b1);
+            String temp2 = Integer.toBinaryString(b2);
+            while (temp1.length() < 8) {
+                    temp1 = "0" + temp1;
+            }
+            if (temp1.length() == 32) {
+                    temp1 = temp1.substring(24, 32);
+            }
+            while (temp2.length() < 8) {
+                    temp2 = "0" + temp2;
+            }
+            if (temp2.length() == 32) {
+                    temp2 = temp2.substring(24, 32);
+            }
 
-		/** On left being true */
-		if (onleft) {
-			return Integer.parseInt(temp1 + temp2.substring(0, 4), 2);
-		} else {
-			return Integer.parseInt(temp1.substring(4, 8) + temp2, 2);
-		}
+            /** On left being true */
+            if (onleft) {
+                    return Integer.parseInt(temp1 + temp2.substring(0, 4), 2);
+            } else {
+                    return Integer.parseInt(temp1.substring(4, 8) + temp2, 2);
+            }
 
 	}
 
@@ -194,9 +186,15 @@ public class LZWCompression {
 	 *            - file path
 	 * @throws IOException
 	 */
+
+        
 	public void LZW_Decompress(String input, String output) throws IOException {
 		/** Initialize the variables */
+                /** Stream pointer to input and output file path */
+		DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream(input)));
 
+		DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(output)));
+                maxDicSize = in.readInt();
 		Array_char = new String[maxDicSize];
 		for (int i = 0; i < 256; i++) {
 			table.put(Character.toString((char) i), i);
@@ -204,61 +202,52 @@ public class LZWCompression {
 		}
 		count = 256;
 
-		/** Stream pointer to input and output file path */
-		DataInputStream in = new DataInputStream(new BufferedInputStream(
-				new FileInputStream(input)));
-
-		DataOutputStream out = new DataOutputStream(new BufferedOutputStream(
-				new FileOutputStream(output)));
-
+		
 		int currword, priorword;
 		byte[] buffer = new byte[3];
 		boolean onleft = true;
 		try {
 
-			/**
-			 * Get the first word in code and output its corresponding character
-			 */
-			buffer[0] = in.readByte();
-			buffer[1] = in.readByte();
+                    /**
+                     * Get the first word in code and output its corresponding character
+                     */
+                    buffer[0] = in.readByte();
+                    buffer[1] = in.readByte();
 
-			priorword = getvalue(buffer[0], buffer[1], onleft);
-			onleft = !onleft;
-			out.writeBytes(Array_char[priorword]);
+                    priorword = getvalue(buffer[0], buffer[1], onleft);
+                    onleft = !onleft;
+                    out.writeBytes(Array_char[priorword]);
 
-			/**
-			 * Read every 3 bytes and generate a corresponding characters - 2
-			 * character
-			 */
-			while (true) {
+                    /**
+                     * Read every 3 bytes and generate a corresponding characters - 2
+                     * character
+                     */
+                    while (true) {
 
-				if (onleft) {
-					buffer[0] = in.readByte();
-					buffer[1] = in.readByte();
-					currword = getvalue(buffer[0], buffer[1], onleft);
-				} else {
-					buffer[2] = in.readByte();
-					currword = getvalue(buffer[1], buffer[2], onleft);
-				}
-				onleft = !onleft;
-				if (currword >= count) {
+                        if (onleft) {
+                            buffer[0] = in.readByte();
+                            buffer[1] = in.readByte();
+                            currword = getvalue(buffer[0], buffer[1], onleft);
+                        } else {
+                            buffer[2] = in.readByte();
+                            currword = getvalue(buffer[1], buffer[2], onleft);
+                        }
+                        onleft = !onleft;
+                        if (currword >= count) {
 
-					if (count < maxDicSize)
-						Array_char[count] = Array_char[priorword]
-								+ Array_char[priorword].charAt(0);
-					count++;
-					out.writeBytes(Array_char[priorword]
-							+ Array_char[priorword].charAt(0));
-				} else {
+                            if (count < maxDicSize)
+                                    Array_char[count] = Array_char[priorword] + Array_char[priorword].charAt(0);
+                            count++;
+                            out.writeBytes(Array_char[priorword] + Array_char[priorword].charAt(0));
+                        } else {
 
-					if (count < maxDicSize)
-						Array_char[count] = Array_char[priorword]
-								+ Array_char[currword].charAt(0);
-					count++;
-					out.writeBytes(Array_char[currword]);
-				}
-				priorword = currword;
-			}
+                            if (count < maxDicSize)
+                                    Array_char[count] = Array_char[priorword] + Array_char[currword].charAt(0);
+                            count++;
+                            out.writeBytes(Array_char[currword]);
+                        }
+                        priorword = currword;
+                    }
 
 		} catch (EOFException e) {
 			in.close();
@@ -266,21 +255,5 @@ public class LZWCompression {
 		}
 
 	}
-
-	/**
-	 * The main method is used to test the working of the program. The Compress
-	 * method can read in a txt, video or an excel file and convert it to a
-	 * binary file(compressed version). The decompress method reads in the
-	 * binary compressed file and generates the corresponding file. Based on the
-	 * comparision between 2 data structures HashMap and TreeMap. We can infer
-	 * that HashMap performs better as compared to TreeMap.
-	 * 
-	 * Words and the csv file was compressed to a lower size. But the mp4 file
-	 * was not converted to a lower size in fact the conversion made the file
-	 * increase in size.
-	 * 
-	 * @param args
-	 * @throws IOException
-	 */
 
 }

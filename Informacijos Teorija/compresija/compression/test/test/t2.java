@@ -44,8 +44,8 @@ public class t2 {
     @Test
     public void test() throws IOException{
         {
-            Shannon sh = new Shannon("file.txt","t");
-            DataTable data = sh.readInput(1);
+            Shannon sh = new Shannon("q.pdf","t");
+            DataTable data = sh.readInput(8);
             sh.compress(data);
         }
         

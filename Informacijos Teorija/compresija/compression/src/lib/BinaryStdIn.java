@@ -255,4 +255,22 @@ public final class BinaryStdIn {
         return x;
     }
     
+    public String readBitsAsString(int x){
+        String repr = "";
+        for(int i=0; i<x; i++){
+            if(isEmpty()){
+                repr+="x";
+                break;
+            }
+            boolean b = readBoolean();
+            if(b){
+                repr += "1";
+            }else{
+                repr += "0";
+            }
+            
+        }
+        return repr;
+    }
+    
 }

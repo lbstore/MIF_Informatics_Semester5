@@ -241,7 +241,17 @@ public final class BinaryStdOut {
         for (int i = 0; i < s.length(); i++)
             write(s.charAt(i), r);
     }
-
+    
+    
+    public void writeStringAsBits(String str){
+        for(char c :str.toCharArray()){
+                if(c=='1'){
+                    write(true);
+                }else if(c=='0'){
+                    write(false);
+                }
+            }
+    }
 
 
 }

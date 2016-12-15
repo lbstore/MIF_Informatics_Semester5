@@ -1,0 +1,76 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Warning" -1 7 1 
+{CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 2 2 2 2 2 1 1 1 3 1 }1 1 0 
+0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "
+> " 0 "" {MPLTEXT 1 0 429 "###########################################
+#############################   #       OPTIMIZAVIMO METOD\330 9 U\336
+DUOTIS\n#       \n#       d\353stytojo .pdf: \n#       http://www.mif.
+vu.lt/katedros/matinf/asm/gr/optimizavimo%20metodai_paskaitos_09.pdf  \+
+     \n#\n#       AUTORIUS - LUKAS KLUSIS\n#       2013 - 11 - 17\n#\n
+#       Naudokit saikingai, ne\376inau ar n\353ra klaid\370\n#########
+###############################################################" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "restart;\nwith(Optimization)
+;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7*%*ImportMPSG%,InteractiveG%(LPS
+olveG%(LSSolveG%)MaximizeG%)MinimizeG%)NLPSolveG%(QPSolveG" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 83 "f:=x^4-29.424*x^3+325.664416*x^2-16
+24.835496*x+3205.121158-4*x*y + 65.3624*y+4*y^2;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"fG,2*$)%\"xG\"\"%\"\"\"F**&$\"&C%H!\"$F*)F(\"\"$F*!
+\"\"*&$\"*;WmD$!\"'F*)F(\"\"#F*F**&$\"+'\\N[i\"F5F*F(F*F1$\"+e670KF5F*
+*(F)F*F(F*%\"yGF*F1*&$\"'COl!\"%F*F>F*F**&F)F*)F>F7F*F*" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "g1:=x^2-10.712*x+26.194436+y;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#g1G,**$)%\"xG\"\"#\"\"\"F**&$\"&72
+\"!\"$F*F(F*!\"\"$\")OW>E!\"'F*%\"yGF*" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 70 "g2plus:=max(0,5*x-22.2877+y); #pakeisti tik antr\340j
+\341 max funkcijos nar\341" }{TEXT -1 1 " " }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%'g2plusG-%$maxG6$\"\"!,(*&\"\"&\"\"\"%\"xGF,F,$\"'xGA
+!\"%!\"\"%\"yGF," }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "epsilon
+:= 0.01;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(epsilonG$\"\"\"!\"#" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 72 "###################################################
+#####################" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "Rez:=Array(1..5,1..3): # p
+asiruo\360iam viet\340 atsakymams :)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 672 "k:=0:\nxk := 0:\nyk := 0:\n\nC:=10:\nr:=1:\n\nfor i \+
+from 1 to 5 do #iteruojame 5 kartus\n'iteracija' = i;\nx:='x':\ny:='y'
+:\nF:=simplify(f + (r/2) * (g1^2 + g2plus^2)):\nminF:=NLPSolve(F,initi
+alpoint =\{x=xk, y = yk\}, method = modifiednewton):\nx:=eval(x,minF[2
+][1]):\ny:=eval(y,minF[2][2]):\n'k' = k;\n'r^k' = r;\nRez[i,1]:= x;\nR
+ez[i,2]:= y;\nRez[i,3]:= f;\nP:= simplify((r/2) * (g1^2 + g2plus^2)):
+\n\"--------------------------------------------------------------\";
+\nif( P <= epsilon)\n then \n   rezX := x;\n   rezY := y;\n   rezF := \+
+f;   \n else \n   k:=k+1;\n   r:=r*C;\n   xk := x;\n   yk := y;\n   x:
+='x':\n   y:='y':\n end if:\n\nend do: #jeigu norima gauti veiksl\370 \+
+eili\360kum\340, vietoje \":\" para\360yti \";\"" }}{PARA 7 "" 1 "" 
+{TEXT -1 91 "Warning, convergence is not assured; examine Hessian valu
+es, or consider raising tolerance\n" }}{PARA 7 "" 1 "" {TEXT -1 91 "Wa
+rning, convergence is not assured; examine Hessian values, or consider
+ raising tolerance\n" }}{PARA 7 "" 1 "" {TEXT -1 91 "Warning, converge
+nce is not assured; examine Hessian values, or consider raising tolera
+nce\n" }}{PARA 7 "" 1 "" {TEXT -1 91 "Warning, convergence is not assu
+red; examine Hessian values, or consider raising tolerance\n" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 93 "\n\" x(r^k)                 \+
+              y(r^k)                       f(x(r^k),y(r^k))\";\n\nRez;
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q^p~x(r^k)~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~y(r^k)~~~~~~~~~~~~~~~~~~~~~~~f(x(r^k),y(r^k))6\"" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*K?![<-%'MATRIXG6#7'7%$\"3%o[U3E)3
+fh!#<$!3t]Xb,RkQZF.$\"+-oCo7!\")7%$\"3u#3\">7zq\\\\F.$!3y!ee7B*)\\n\"F
+.$\"+%)Q<$3\"!\"(7%$\"3^'Gy()y;UI%F.$\"34!*z\"f%pnM!)!#=$\"+XS8IGF;7%$
+\"3sY.r/;!oA%F.$\"3#*po]$\\(fc6F.$\"+NI`TJF;7%$\"3hB:!QKO*=UF.$\"37^+
+\\O1I$>\"F.$\"+&\\DZ<$F;%&ArrayG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 11 "" 1 "" {TEXT -1 0 "" }}}}{MARK "
+11 4 0" 91 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 
+1 }{RTABLE_HANDLES 174802032 }{RTABLE 
+M7R0
+I6RTABLE_SAVE/174802032X,%)anythingG6"6"[gl!!%!!!#0"&"$$"3%o[U3E)3fh!#<$"3u#3">
+7zq\\F)$"3^'Gy()y;UI%F)$"3sY.r/;!oA%F)$"3hB:!QKO*=UF)$!3t]Xb,RkQZF)$!3y!ee7B*)
+\n"F)$"34!*z"f%pnM!)!#=$"3#*po]$\(fc6F)$"37^+\O1I$>"F)$"+-oCo7!")$"+%)Q<$3"!"($
+"+XS8IGFB$"+NI`TJFB$"+&\DZ<$FBF&
+}
+
