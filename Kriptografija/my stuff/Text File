@@ -1,0 +1,13 @@
+registracija Brando banke
+gaunam viesa informacija
+(nekeisti kintamuju vardu)
+banko rakto komponentes yra 6 skaiciai, kuriu reikes tolimesniam darbui
+Kliento registracija
+pasirinkti skaiciu U nedidestni negu q-1
+q - identifikatorius
+I susijes su g1 ir su U
+I== g1^U mod p
+kreiptis i banka su I ir po update gauti skaicius a ir b
+//powermod
+su H funkcija ivesti 5 skaicius atskitus tarpais
+atsakymui pilnai pakaks 6 skaiciu
