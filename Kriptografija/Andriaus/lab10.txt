@@ -1,0 +1,112 @@
+T1 = dviratisgeriauuzlektuva
+
+T2 = pradesimerytoj
+
+T3 = ziemauzduru
+
+T2 parasas: 350430482222414905390049672358024456388 
+n = 1069233087427372491032245946329256147071
+e = 965027132433839106837613858926848792927
+
+// Source
+
+A='abcdefghijklmnopqrstuvwxyz'
+def i_skaiciu(text):
+    t=''
+    for r in text:
+        if r in A:
+            ind=A.index(r)+1
+            if ind<10: t=t+'0'+str(ind)
+            else: t=t+str(ind)
+    return int(t,10)  
+
+def i_teksta(M):
+    n=M
+    text=''
+    while n>0:
+        ind=n%100
+        ind=ind-1
+        if (ind>=0) & (ind<len(A)):
+            text+=A[ind]
+            n=(n-ind+1)//100
+        else:
+            text+='?'
+            n=(n-ind+1)//100            
+    return text[::-1]     
+    
+M=i_skaiciu('vienas')
+T=i_teksta(M)
+M,T
+
+
+n = 1421886975823027261085060145779072007190030249
+e = 707871963247
+d = 277811472956101190584971058206399429467175415
+
+
+C = 1199134454048767043290049995329852542268634938
+M1 = C.powermod(d,n)
+i_teksta(M1)
+
+
+
+
+
+b = ((e*d) - 1)%8
+b
+s = 3
+t = ((e*d) - 1)/8
+t
+
+a = 7
+aa = gcd(a,n)
+aa
+
+a0 = a.powermod(t,n)
+a1 = a0.powermod(2,n)
+a1
+
+p = gcd(a0 - 1, n)
+q = gcd(a0 + 1, n)
+p, q, p*q
+is_prime(q)
+p*q == n
+
+fin = (p - 1) * (q - 1)
+fin
+
+e2 = 945737175265
+d = 1/e2 % fin
+d
+
+C = 78679992420020288940666688224420251580427233
+M2 = C.powermod(d,n)
+i_teksta(M2)
+
+
+
+C = 6807148692359183191944519809126028636136041
+m1 = C.powermod((p+1)/4, p)
+m2 = C.powermod((q+1)/4, q)
+
+u = 1/q % p
+v = 1/p % q
+
+M3 = (-m1 * u * q + m2 * v * p) % n
+i_teksta(M3)
+
+
+# Nauja sistema
+q = next_prime(234132412341324312)
+p = next_prime(4566787984350567564532)
+n = p*q
+fin = (p - 1) * (q - 1)
+
+d = next_prime(2323423495008133101273856)
+gcd(d, fin)
+e = 1/d % fin
+C = M2.powermod(d,n)
+i_teksta(C.powermod(e,n))
+C, n, e
+test = C.powermod(e,n)
+i_teksta(test)

@@ -1,0 +1,93 @@
+11 uzduotis
+
+Atsakymas:
+
+Privatus raktas = 686460470252
+tekstas = saugokites?antano
+Parasas [gama,delta] = [9654216562162681193231795441190715462004068381, 8169929671918402749126421215814277021757063599]
+
+SAGE Kodas:
+
+A='abcdefghijklmnopqrstuvwxyz'
+def i_skaiciu(text):
+    t=''
+    for r in text:
+        if r in A:
+            ind=A.index(r)+1
+            if ind<10: t=t+'0'+str(ind)
+            else: t=t+str(ind)
+    return int(t,10)  
+
+def i_teksta(M):
+    n=M
+    text=''
+    while n>0:
+        ind=n%100
+        ind=ind-1
+        if (ind>=0) & (ind<len(A)):
+            text+=A[ind]
+            n=(n-ind+1)//100
+        else:
+            text+='?'
+            n=(n-ind+1)//100            
+    return text[::-1]     
+    
+M=i_skaiciu('vienas')
+T=i_teksta(M)
+M,T
+
+t1 = 1030921271101042701200510152005
+t2 = 16011801190119271405200911180119
+
+p = 12016012609141909200527091927191118250205121973
+alpha = 1340
+beta = 9900159301238743347893387743636156814334472736
+
+gama1 = 3579735961342247838645883312530898579321323102
+delta1 = 2789329753813312096347076168605700016084462271
+gama2 = 3579735961342247838645883312530898579321323102
+delta2 = 415668301344501381696125345823626277854669497 
+
+a = power_mod(beta, gama1, p)
+b = power_mod(gama1, delta1, p)
+rez =  (a * b) % p
+rez == power_mod(alpha, t1, p)
+
+d = gcd(delta1 - delta2, p-1)
+d = gcd(gama1, p-1)
+
+xs = (t1-t2)/d
+deltas = (delta1 - delta2)/d
+ps = (p-1)/d
+
+k = xs / deltas % ps
+k
+
+(t1 - (k*delta1)) % d
+
+gama1 == power_mod(alpha, k, p)
+
+d = gcd(gama1, p-1)
+
+a = ((t1 - (k*delta1)) / d) / (gama1 / d) % ((p-1)/d)
+a
+
+C1 = 791357483148809249184647509160624766153487036
+C2 = 6327161704467825081979338047515235625357081705
+
+C1A = power_mod(C1, a, p)
+
+rez = C2 / C1A % p
+rez
+rezText = i_teksta(rez)
+
+k = 12016012609141909200527091927191118250205
+gcd(k, p-1)
+
+gama = power_mod(alpha, k, p)
+delta = (rez-(a*gama)) / k % (p-1)
+
+test = (power_mod(beta, gama, p) * power_mod(gama, delta, p)) % p
+test == power_mod(alpha, rez, p)
+
+a, rezText, gama, delta
